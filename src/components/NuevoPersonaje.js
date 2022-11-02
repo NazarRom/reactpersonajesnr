@@ -3,14 +3,17 @@ import axios from 'axios';
 import Global from '../Global';
 import { Navigate } from 'react-router-dom';
 export default class NuevoPersonaje extends Component {
+    //tres referencas para obtener los valores
     cajaNombreRef = React.createRef();
     cajaImagenRef = React.createRef();
     cajaSelectRef = React.createRef();
+    //state donde almacenar los datos y comprobarlos
     state = {
         series: [],
         statusGet: false,
         statusPost: false
     }
+    //cargar el selec con las series
     loadSeries = () => {
         var request = "api/Series";
         var url = Global.urlSeries + request;
@@ -21,9 +24,12 @@ export default class NuevoPersonaje extends Component {
             })
         })
     }
+    //cargar el select antes de que se monte el componente
     componentDidMount = () => {
         this.loadSeries();
     }
+    //un post para introducir un personaje nuevo
+    //recojo los tres valores los meto en un js (data) y hago un post con axios
     updatePersonaje = (e) => {
         e.preventDefault();
         var nombre = this.cajaNombreRef.current.value;

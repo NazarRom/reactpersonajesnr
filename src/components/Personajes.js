@@ -3,10 +3,12 @@ import axios from 'axios';
 import Global from '../Global';
 import { NavLink } from 'react-router-dom';
 export default class Personajes extends Component {
+    //un state para cargar todos los personajes juntos con el status para comprobar
     state = {
         personajes:[],
         status:true
     }
+    //axios para cargar los personajes de la api
     loadPersonajes = () =>{
         var idSerie = this.props.idserie
         var request = "/api/Series/PersonajesSerie/" + idSerie;
@@ -18,6 +20,7 @@ export default class Personajes extends Component {
             })
         })
     }
+    //ejecutar la funcion antes de que se monte
     componentDidMount = () =>{
         this.loadPersonajes();
     }

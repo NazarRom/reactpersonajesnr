@@ -9,14 +9,17 @@ import NuevoPersonaje from './components/NuevoPersonaje';
 import ModificarPersonaje from './components/ModificarPersonaje';
 export default class Router extends Component {
   render() {
+    //funcion para mandar datos por ruta con useParams al componente serie
     function GetSerieElement(){
         var {idserie} = useParams();
         return(<Serie idserie={idserie}/>)
     }
+    //funcion para mandar datos por ruta con useParams al componente personajes
     function GetPersonajesElement(){
         var {idserie} = useParams();
         return(<Personajes idserie={idserie}/>)
     }
+    //las rutas exactas para navegar
     return (
       <BrowserRouter>
       <MenuSeries/>

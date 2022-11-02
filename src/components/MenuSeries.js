@@ -6,10 +6,12 @@ import axios from 'axios';
 //importar el global
 import Global from '../Global';
 export default class MenuSeries extends Component {
+    // state donde voy a caragr todos los datos y el status para comprobar
     state = {
         series:[],
         status:false
     }
+    //consumo la api con el axios y obtengo los resultados
     loadSelect = () =>{
         var request = "api/Series";
         var url = Global.urlSeries + request;
@@ -20,10 +22,12 @@ export default class MenuSeries extends Component {
             })
         }) 
     }
+    //cargar el componente antes de que se cree
     componentDidMount = () =>{
         this.loadSelect();
     }
   render() {
+    //un menu con sus respectivos NavLink para navegar por los componentes
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
