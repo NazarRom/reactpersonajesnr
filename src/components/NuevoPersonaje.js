@@ -48,11 +48,11 @@ export default class NuevoPersonaje extends Component {
                 <h1>Nuevo personaje</h1>
                 <form onSubmit={this.updatePersonaje}>
                     <label>Nombre:</label><br />
-                    <input type="text" ref={this.cajaNombreRef} /><br />
+                    <input type="text" ref={this.cajaNombreRef} className="form-control"/><br />
                     <label>Imagen:</label><br />
-                    <input type="text" ref={this.cajaImagenRef} /><br />
+                    <input type="text" ref={this.cajaImagenRef} className="form-control"/><br />
                     <label>Serie:</label><br />
-                    <select ref={this.cajaSelectRef}>
+                    <select ref={this.cajaSelectRef} className="form-control">
                         {
                             this.state.statusGet == true &&
                             this.state.series.map((ser, index) => {

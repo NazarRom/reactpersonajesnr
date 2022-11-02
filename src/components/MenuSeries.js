@@ -51,7 +51,7 @@ export default class MenuSeries extends Component {
                   {
                     this.state.status == true&&
                     this.state.series.map((serie,index)=>{
-                        return(<li className="dropdown-item" key={serie.idSerie}><NavLink to={"/serie/"+ serie.idSerie}>{serie.nombre}</NavLink></li>)
+                        return(<li className="dropdown-item" key={serie.idSerie}><NavLink className="dropdown-item" to={"/serie/"+ serie.idSerie}>{serie.nombre}</NavLink></li>)
                     })
                   }
                 </ul>

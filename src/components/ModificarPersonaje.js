@@ -10,7 +10,11 @@ export default class ModificarPersonaje extends Component {
         statusSeries: false,
         personajes: [],
         statusPersonajes: false,
-        statusPUT: false
+        statusPUT: false,
+
+
+        serieMostrar:{},
+        personajeMostrar:{}
     }
 
     loadSeries = () => {
@@ -49,13 +53,18 @@ export default class ModificarPersonaje extends Component {
             })
         })
     }
-    
+    loadfotos = (e) =>{
+        e.preventDefault();
+        var serie = parseInt(this.cajaSerieRef.current.value);
+        var personaje = parseInt(this.cajaPersonajeRef.current.value);
+       
+    }
     render() {
         return (
             <div>
                 <form on onSubmit={this.updatePersonaje}>
                     <label>Seleccione una serie:</label><br />
-                    <select ref={this.cajaSerieRef}>
+                    <select ref={this.cajaSerieRef} className="form-control">
                         {this.state.statusSeries == true &&
                             this.state.series.map((ser, index) => {
                                 return (<option key={ser.idSerie} value={ser.idSerie}>{ser.nombre}</option>)
@@ -64,7 +73,7 @@ export default class ModificarPersonaje extends Component {
                     </select><br /><br />
 
                     <label>Seleccione un personaje</label><br />
-                    <select ref={this.cajaPersonajeRef}>
+                    <select ref={this.cajaPersonajeRef} className="form-control">
                         {
                             this.state.statusPersonajes == true &&
                             this.state.personajes.map((per, index) => {
@@ -73,12 +82,13 @@ export default class ModificarPersonaje extends Component {
                         }
                     </select><br /><br />
 
-                    <button>Guardar cambios</button>
+                    <button className='btn btn-warning'>Guardar cambios</button>
                 </form>
                 {
                     this.state.statusPUT == true &&
                     <Navigate to={"/personajes/" + this.cajaSerieRef.current.value}></Navigate>
                 }
+
             </div>
         )
     }
